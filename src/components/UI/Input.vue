@@ -1,19 +1,17 @@
 <template>
   <div class="input">
     <label>
-      <span>{{ label }}</span>
+      <span class="input__label">{{ label }}</span>
       <input 
         type="text"
-        :value="inputValue"
-        v-on="$listeners"
-        v-bind="$attrs"
+        :value="value"
+        @input="handleInput($event)"
       >
     </label>
   </div>
 </template>
 <script>
 export default {
-  inheritAttrs: false,
   name: "Input",
   props: {
     value: {
@@ -26,15 +24,17 @@ export default {
       default: "Label"
     }
   },
-  computed: {
-    inputValue: {
-      get() {
-        return this.value
-      },
-      set(newVal) {
-        this.$emit("input", newVal);
-      }
+  methods: {
+    handleInput(event) {
+      this.$emit('input', event.target.value);
     },
   }
 }
 </script>
+<style lang="scss">
+.input {
+  &__label {
+    margin-right: 10px;
+  }
+}
+</style>

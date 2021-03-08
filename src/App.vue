@@ -32,6 +32,7 @@ export default {
   flex-direction: column;
 }
 .row {
+  display: flex;
   margin-left: -20px;
   margin-right: -20px;
 }
@@ -39,5 +40,8 @@ export default {
   flex: 1;
   padding-left: 20px;
   padding-right: 20px;
+}
+.m-bm {
+  margin-bottom: 30px;
 }
 </style>
